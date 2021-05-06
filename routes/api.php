@@ -22,3 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/posts', function(){ //namespace api
     return Post::all();
 });
+Route::post('/posts/new', function() {
+    request()->validate([
+        'title' => 'required',
+        'content' => 'required'
+    ]);
+
+    return Post::create([
+        'title' => request('title'),
+        'content' => request('content'),
+    ]);
+});
