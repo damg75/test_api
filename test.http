@@ -5,25 +5,26 @@ POST http://localhost:8000/api/posts HTTP/1.1
 Content-type: application/json
 
 {
-    "title": "My new title 3",
-    "content": "My new content 3"
+    "title": "My new title copnt",
+    "content": "My new content cont"
 }
 ### 
 PUT http://localhost:8000/api/posts/3 HTTP/1.1
 Content-type: application/json
 
 {
-    "title": "My updateddd title 3",
-    "content": "My updateddd content 3"
+    "title": "My updatedddd title 3",
+    "content": "My updatedddd content 3"
 }
 ###
 GET http://localhost:8000/api/posts/3 HTTP/1.1
 ###
 POST http://localhost:8000/api/posts HTTP/1.1
 Content-type: application/json
+
 {
     "title": "My new title to delete",
     "content": "My new content delete"
 }
 ###   
-DELETE http://localhost:8000/api/posts/5 HTTP/1.1
+DELETE http://localhost:8000/api/posts/8 HTTP/1.1
