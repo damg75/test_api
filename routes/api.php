@@ -24,9 +24,9 @@ Route::get('/posts', [PostApiController::class, 'index']);
 //New
 Route::post('/posts', [PostApiController::class, 'create']);
 //Update
-Route::put('/posts/{post}', [PostApiController::class, 'update']);
+Route::put('/posts/{post:slug}', [PostApiController::class, 'update']);
 //Show
-Route::get('/posts/{post}', [PostApiController::class, 'show']);
+Route::get('/posts/{post:slug}', [PostApiController::class, 'show']);
 //Delete
-Route::delete('/posts/{post}', [PostApiController::class, 'destroy']);
+Route::delete('/posts/{post:slug}', [PostApiController::class, 'destroy']);
 

@@ -17,13 +17,19 @@ class Post extends Model
     protected static function boot()
     {
         parent::boot();
-
+        //model events
         static::created(function ($post) {
-
+            
             $post->slug = $post->createSlug($post->title);
-
+            
             $post->save();
         });
+        // static::updated(function ($post) {
+            
+        //     $post->slug = $post->createSlug($post->title);
+            
+        //     $post->save();
+        // });
     }
 
     private function createSlug($title)
