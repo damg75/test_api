@@ -18,10 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//Index
 Route::get('/posts', function(){ //namespace api
     return Post::all();
 });
+//New
 Route::post('/posts', function() {
     request()->validate([
         'title' => 'required',
@@ -33,6 +34,7 @@ Route::post('/posts', function() {
         'content' => request('content'),
     ]);
 });
+//Update
 Route::put('/posts/{post}', function(Post $post) {
     request()->validate([
         'title' => 'required',
@@ -47,4 +49,8 @@ Route::put('/posts/{post}', function(Post $post) {
     return [
        'success' => $success 
     ]; //JSON
+});
+//Show
+Route::get('/posts/{post}', function(Post $post) {
+    return Post::find($post);
 });

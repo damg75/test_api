@@ -19,3 +19,6 @@ Content-type: application/json
     "title": "My updateddd title 3",
     "content": "My updateddd content 3"
 }
+
+###
+GET http://localhost:8000/api/posts/3 HTTP/1.1
