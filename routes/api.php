@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/posts', function(){ //namespace api
     return Post::all();
 });
-Route::post('/posts/new', function() {
+Route::post('/posts', function() {
     request()->validate([
         'title' => 'required',
         'content' => 'required'
@@ -32,4 +32,19 @@ Route::post('/posts/new', function() {
         'title' => request('title'),
         'content' => request('content'),
     ]);
+});
+Route::put('/posts/{post}', function(Post $post) {
+    request()->validate([
+        'title' => 'required',
+        'content' => 'required'
+    ]);
+    
+    $success = $post -> update([
+        'title' => request('title'),
+        'content' => request('content'),
+    ]);
+
+    return [
+       'success' => $success 
+    ]; //JSON
 });

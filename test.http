@@ -2,10 +2,20 @@ GET http://localhost:8000/api/posts HTTP/1.1
 
 ###
 
-POST http://localhost:8000/api/posts/new HTTP/1.1
+POST http://localhost:8000/api/posts HTTP/1.1
 Content-type: application/json
 
 {
-    "title": "My new title 2",
-    "content": "My new content 2"
+    "title": "My new title 3",
+    "content": "My new content 3"
+}
+
+### 
+
+PUT http://localhost:8000/api/posts/3 HTTP/1.1
+Content-type: application/json
+
+{
+    "title": "My updateddd title 3",
+    "content": "My updateddd content 3"
 }
