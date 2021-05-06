@@ -54,3 +54,12 @@ Route::put('/posts/{post}', function(Post $post) {
 Route::get('/posts/{post}', function(Post $post) {
     return Post::find($post);
 });
+//Delete
+Route::delete('/posts/{post}', function(Post $post) {
+    
+    $success = $post -> delete();
+
+    return [
+       'success' => $success 
+    ]; //JSON
+});
