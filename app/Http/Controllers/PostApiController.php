@@ -19,19 +19,19 @@ class PostApiController extends Controller
     
         return Post::create($request->all());
     }
-    public function update (Request $request, $post)
+    public function update (Request $request, $id)
     {
-        $post = Post::find($post);
+        $post = Post::find($id);
         $post->update($request->all());
         return $post;
     }
-    public function show (Post $post)
+    public function show ($id)
     {
-        return Post::find($post);
+        return Post::find($id);
     }
-    public function destroy (Post $post)
+    public function destroy ($id)
     {
-        return Post::destroy($post);
+        return Post::destroy($id);
     }
     public function search($title)
     {

@@ -39,9 +39,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        return Category::find($category);
+        return Category::find($id);
     }
 
     /**
@@ -51,9 +51,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $category)
+    public function update(Request $request, $id)
     {
-        $category = Category::find($category);
+        $category = Category::find($id);
         $category->update($request->all());
         return $category;
     }
@@ -64,8 +64,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($category)
+    public function destroy($id)
     {
-        return Category::destroy($category);
+        return Category::destroy($id);
     }
 }

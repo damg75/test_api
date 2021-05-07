@@ -39,6 +39,6 @@ Route::get('/posts/search/{title}', [PostApiController::class, 'search']);
 
 Route::resource('categories',CategoryController::class);
 Route::get('categories/{id}/posts', function ($id) {
-    $category = Category::find($id);
+    $category = Category::findOrFail($id);
     return $category->posts;
 });
