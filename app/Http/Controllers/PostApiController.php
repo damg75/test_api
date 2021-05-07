@@ -10,33 +10,20 @@ class PostApiController extends Controller
     {
         return Post::all();
     }
-    public function create ()
+    public function create (Request $request)
     {
         request()->validate([
             'title' => 'required',
             'content' => 'required'
         ]);
     
-        return Post::create([
-            'title' => request('title'),
-            'content' => request('content'),
-        ]);
+        return Post::create($request->all());
     }
-    public function update (Post $post)
+    public function update (Request $request, $post)
     {
-        request()->validate([
-            'title' => 'required',
-            'content' => 'required'
-        ]);
-        
-        $success = $post -> update([
-            'title' => request('title'),
-            'content' => request('content'),
-        ]);
-    
-        return [
-           'success' => $success 
-        ]; //JSON
+        $post = Post::find($post);
+        $post->update($request->all());
+        return $post;
     }
     public function show (Post $post)
     {
@@ -44,10 +31,6 @@ class PostApiController extends Controller
     }
     public function destroy (Post $post)
     {
-        $success = $post -> delete();
-
-        return [
-           'success' => $success 
-        ]; //JSON
+        return Post::destroy($post);
     }
 }
