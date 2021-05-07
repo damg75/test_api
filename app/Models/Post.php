@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'content', 'slug'
+        'title', 'content', 'slug', 'category_id'
     ]; //pseudo params
 
     protected static function boot()

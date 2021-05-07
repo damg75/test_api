@@ -30,3 +30,4 @@ Route::get('/posts/{post:slug}', [PostApiController::class, 'show']);
 //Delete
 Route::delete('/posts/{post:slug}', [PostApiController::class, 'destroy']);
 
+//Route::resource('posts','PostsApiController'); //RESTful controller

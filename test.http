@@ -6,7 +6,8 @@ Content-type: application/json
 
 {
     "title": "My new title cont",
-    "content": "My new content cont"
+    "content": "My new content cont",
+    "category_id": 2
 }
 ### 
 PUT http://localhost:8000/api/posts/my-new-title-cont HTTP/1.1
@@ -14,7 +15,8 @@ Content-type: application/json
 
 {
     "title": "My updatedddd title 3",
-    "content": "My updatedddd content 3"
+    "content": "My updatedddd content 3",
+    "category_id": 2
 }
 ###
 GET http://localhost:8000/api/posts/my-new-title-to-delete HTTP/1.1

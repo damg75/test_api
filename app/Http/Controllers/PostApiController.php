@@ -14,31 +14,26 @@ class PostApiController extends Controller
     {
         request()->validate([
             'title' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'category_id' => 'required'
         ]);
     
         return Post::create([
             'title' => request('title'),
             'content' => request('content'),
+            'category_id' => request('category_id'),
         ]);
     }
-    public function update (Post $post)
+    public function update (Request $request, $slug)
     {
-        request()->validate([
-            'title' => 'required',
-            'content' => 'required'
-        ]);
-        
-        $success = $post -> update([
-            'title' => request('title'),
-            'content' => request('content'),
-        ]);
+        $post = Post::find($slug);
+        $success = $post -> update($request->all());
     
         return [
            'success' => $success 
         ]; //JSON
     }
-    public function show (Post $post)
+    public function show (Post $post)   
     {
         return Post::find($post);
     }
