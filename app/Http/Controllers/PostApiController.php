@@ -10,7 +10,7 @@ class PostApiController extends Controller
     {
         return Post::all();
     }
-    public function create (Request $request)
+    public function store (Request $request)
     {
         request()->validate([
             'title' => 'required',

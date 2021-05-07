@@ -1,9 +1,13 @@
 <?php
 
-use App\Models\Post;
+
 use App\Http\Controllers\PostApiController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+use App\Models\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +23,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//Index
-Route::get('/posts', [PostApiController::class, 'index']);
-//New
-Route::post('/posts', [PostApiController::class, 'create']);
-//Update
-Route::put('/posts/{post}', [PostApiController::class, 'update']);
-//Show
-Route::get('/posts/{post}', [PostApiController::class, 'show']);
-//Delete
-Route::delete('/posts/{post}', [PostApiController::class, 'destroy']);
+// Index
+// Route::get('/posts', [PostApiController::class, 'index']);
+// //New
+// Route::post('/posts', [PostApiController::class, 'create']);
+// //Update
+// Route::put('/posts/{post}', [PostApiController::class, 'update']);
+// //Show
+// Route::get('/posts/{post}', [PostApiController::class, 'show']);
+// //Delete
+// Route::delete('/posts/{post}', [PostApiController::class, 'destroy']);
+
+Route::resource('posts',PostApiController::class);
+
+Route::resource('categories',CategoryController::class);
