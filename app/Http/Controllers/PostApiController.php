@@ -33,4 +33,8 @@ class PostApiController extends Controller
     {
         return Post::destroy($post);
     }
+    public function search($title)
+    {
+        return Post::where('title', 'like', '%'.$title.'%')->get();
+    }
 }

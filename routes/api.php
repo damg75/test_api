@@ -35,5 +35,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::delete('/posts/{post}', [PostApiController::class, 'destroy']);
 
 Route::resource('posts',PostApiController::class);
+Route::get('/posts/search/{title}', [PostApiController::class, 'search']);
 
 Route::resource('categories',CategoryController::class);
